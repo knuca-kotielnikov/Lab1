@@ -1,6 +1,6 @@
-package com.knuba.lab2;
+package com.knuba.lab1.exercise2;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) throws InterruptedException {
             ResourceLock lock = new ResourceLock();

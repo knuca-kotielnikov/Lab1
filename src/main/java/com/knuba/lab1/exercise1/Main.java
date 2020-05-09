@@ -1,4 +1,4 @@
-package com.knuba.lab1;
+package com.knuba.lab1.exercise1;
 
 import java.util.Arrays;
 import java.util.List;

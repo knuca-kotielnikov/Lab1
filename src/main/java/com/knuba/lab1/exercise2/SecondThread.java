@@ -1,12 +1,10 @@
-package com.knuba.lab2;
-
-import static java.lang.Thread.sleep;
+package com.knuba.lab1.exercise2;
 
 public class SecondThread implements Runnable {
 
-    private ResourceLock resourceLock;
+    final private ResourceLock resourceLock;
 
-    public SecondThread (ResourceLock resourceLock) {
+    SecondThread (ResourceLock resourceLock) {
         this.resourceLock = resourceLock;
     }
 
@@ -15,7 +13,7 @@ public class SecondThread implements Runnable {
         synchronized (resourceLock) {
             for (int i = 0; i < 10; i++) {
 
-                while (resourceLock.flag != 2) {
+                while (resourceLock.getFlag() != 2) {
                     try {
                         resourceLock.wait();
                     } catch (InterruptedException e) {
@@ -29,7 +27,7 @@ public class SecondThread implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                resourceLock.flag = 1;
+                resourceLock.setFlag(1);
                 resourceLock.notify();
             }
         }
